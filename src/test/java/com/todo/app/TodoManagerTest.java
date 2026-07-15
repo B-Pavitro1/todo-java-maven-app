@@ -58,9 +58,10 @@ class TodoManagerTest {
         Todo todo2 = todoManager.addTodo("Task 2", "Desc 2");
         
         todoManager.markTodoComplete(todo1.getId());
+        todoManager.markTodoComplete(todo2.getId());
         
-        assertEquals(1, todoManager.getCompletedCount());
-        assertEquals(1, todoManager.getPendingCount());
+        assertEquals(2, todoManager.getCompletedCount());
+        assertEquals(0, todoManager.getPendingCount());
         assertEquals(2, todoManager.getTotalCount());
     }
     
