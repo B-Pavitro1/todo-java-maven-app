@@ -23,9 +23,11 @@ pipeline {
             steps {
                 script {
                     sh """
-                        mkdir -p $MAVEN_REPOSITORY\
+                        mkdir -p $MAVEN_REPOSITORY
                         mvn clean package -DskipTests\
-                        echo 'maven build successfully'
+                        -Dmaven.repo.local=$MAVEN_REPOSITORY\
+                        -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn\
+                        -B
                     """
                 }
             }
