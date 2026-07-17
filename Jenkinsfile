@@ -66,7 +66,7 @@ pipeline {
                                     docker pull ${DOCKER_IMAGE} &&
                                     docker stop todo-app || true &&
                                     docker rm todo-app || true &&
-                                    docker run -d --name todo-app -p 8080:8080 ${DOCKER_IMAGE}
+                                    docker run -d --name todo-app -p 8081:8080 ${DOCKER_IMAGE}
                                 '
                             """
                         }
